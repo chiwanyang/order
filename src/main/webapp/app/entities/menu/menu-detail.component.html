@@ -1,0 +1,37 @@
+
+<div *ngIf="menu">
+    <h2><span jhiTranslate="orderApp.menu.detail.title">Menu</span> {{menu.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="orderApp.menu.name">Name</span></dt>
+        <dd>
+            <span>{{menu.name}}</span>
+        </dd>
+        <dt><span jhiTranslate="orderApp.menu.price">Price</span></dt>
+        <dd>
+            <span>{{menu.price}}</span>
+        </dd>
+        <dt><span jhiTranslate="orderApp.menu.gmt_create">Gmt Create</span></dt>
+        <dd>
+            <span>{{menu.gmt_create | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="orderApp.menu.gmt_modified">Gmt Modified</span></dt>
+        <dd>
+            <span>{{menu.gmt_modified | date:'medium'}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'menu/'+ menu.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

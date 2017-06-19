@@ -1,0 +1,66 @@
+<div>
+    <h2>
+        <span jhiTranslate="orderApp.userMenuRel.home.title">User Menu Rels</span>
+        <button class="btn btn-primary float-right create-user-menu-rel" [routerLink]="['/', { outlets: { popup: ['user-menu-rel-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="orderApp.userMenuRel.home.createLabel">
+            Create new User Menu Rel
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="userMenuRels">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="orderApp.userMenuRel.userId">User Id</span></th>
+            <th><span jhiTranslate="orderApp.userMenuRel.menuId">Menu Id</span></th>
+            <th><span jhiTranslate="orderApp.userMenuRel.userName">User Name</span></th>
+            <th><span jhiTranslate="orderApp.userMenuRel.menuName">Menu Name</span></th>
+            <th><span jhiTranslate="orderApp.userMenuRel.gmtCreate">Gmt Create</span></th>
+            <th><span jhiTranslate="orderApp.userMenuRel.gmtModified">Gmt Modified</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let userMenuRel of userMenuRels ;trackBy: trackId">
+                <td><a [routerLink]="['../user-menu-rel', userMenuRel.id ]">{{userMenuRel.id}}</a></td>
+                <td>{{userMenuRel.userId}}</td>
+                <td>{{userMenuRel.menuId}}</td>
+                <td>{{userMenuRel.userName}}</td>
+                <td>{{userMenuRel.menuName}}</td>
+                <td>{{userMenuRel.gmtCreate | date:'medium'}}</td>
+                <td>{{userMenuRel.gmtModified | date:'medium'}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../user-menu-rel', userMenuRel.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'user-menu-rel/'+ userMenuRel.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'user-menu-rel/'+ userMenuRel.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

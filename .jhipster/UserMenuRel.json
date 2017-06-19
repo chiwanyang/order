@@ -1,0 +1,47 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "userId",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "menuId",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "userName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "menuName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "gmtCreate",
+            "fieldType": "ZonedDateTime",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "gmtModified",
+            "fieldType": "ZonedDateTime",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20170619052556",
+    "dto": "no",
+    "service": "serviceClass",
+    "entityTableName": "user_menu_rel",
+    "pagination": "no"
+}

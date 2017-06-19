@@ -1,0 +1,45 @@
+
+<div *ngIf="userMenuRel">
+    <h2><span jhiTranslate="orderApp.userMenuRel.detail.title">User Menu Rel</span> {{userMenuRel.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="orderApp.userMenuRel.userId">User Id</span></dt>
+        <dd>
+            <span>{{userMenuRel.userId}}</span>
+        </dd>
+        <dt><span jhiTranslate="orderApp.userMenuRel.menuId">Menu Id</span></dt>
+        <dd>
+            <span>{{userMenuRel.menuId}}</span>
+        </dd>
+        <dt><span jhiTranslate="orderApp.userMenuRel.userName">User Name</span></dt>
+        <dd>
+            <span>{{userMenuRel.userName}}</span>
+        </dd>
+        <dt><span jhiTranslate="orderApp.userMenuRel.menuName">Menu Name</span></dt>
+        <dd>
+            <span>{{userMenuRel.menuName}}</span>
+        </dd>
+        <dt><span jhiTranslate="orderApp.userMenuRel.gmtCreate">Gmt Create</span></dt>
+        <dd>
+            <span>{{userMenuRel.gmtCreate | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="orderApp.userMenuRel.gmtModified">Gmt Modified</span></dt>
+        <dd>
+            <span>{{userMenuRel.gmtModified | date:'medium'}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'user-menu-rel/'+ userMenuRel.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

@@ -1,0 +1,38 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.zuzhi.order",
+      "nativeLanguage": "zh-cn"
+    },
+    "jhipsterVersion": "4.5.2",
+    "baseName": "order",
+    "packageName": "com.zuzhi.order",
+    "packageFolder": "com/zuzhi/order",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "hibernateCache": "hazelcast",
+    "clusteredHttpSession": false,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "h2Disk",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": "eureka",
+    "buildTool": "maven",
+    "enableSocialSignIn": false,
+    "jwtSecretKey": "b88285ec3db61bc630d875936009c99625f5fd2b",
+    "clientFramework": "angular2",
+    "useSass": true,
+    "clientPackageManager": "yarn",
+    "applicationType": "monolith",
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "enableTranslation": true,
+    "nativeLanguage": "zh-cn",
+    "languages": [
+      "zh-cn",
+      "en"
+    ]
+  }
+}

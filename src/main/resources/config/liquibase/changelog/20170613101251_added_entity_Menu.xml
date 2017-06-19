@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <property name="now" value="now()" dbms="h2"/>
+
+    <property name="now" value="now()" dbms="mysql"/>
+    <property name="autoIncrement" value="true"/>
+
+    <property name="floatType" value="float4" dbms="postgresql, h2"/>
+    <property name="floatType" value="float" dbms="mysql, oracle, mssql"/>
+
+    <!--
+        Added the entity Menu.
+    -->
+    <changeSet id="20170613101251-1" author="jhipster">
+        <createTable tableName="menu">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="price" type="integer">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="gmt_create" type="timestamp">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="gmt_modified" type="timestamp">
+                <constraints nullable="false" />
+            </column>
+
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
+        </createTable>
+        <dropDefaultValue tableName="menu" columnName="gmt_create" columnDataType="datetime"/>
+        <dropDefaultValue tableName="menu" columnName="gmt_modified" columnDataType="datetime"/>
+
+    </changeSet>
+
+    <changeSet id="201706191333-1" author="cwy">
+        <addColumn tableName="menu">
+            <column name="type" type="integer" defaultValue="0">
+                <constraints nullable="false" />
+            </column>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="201706191333-2" author="cwy">
+        <insert tableName="menu">
+            <column name="id" value="1"/>
+            <column name="type" value="1"/>
+            <column name="gmt_create" value ="2017-06-19 00:00:00"/>
+            <column name="gmt_modified" value="2017-06-19 00:00:00"/>
+            <column name="name" value=""/>
+            <column name="price" value="0"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>
